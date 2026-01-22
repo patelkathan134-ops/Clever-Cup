@@ -20,7 +20,8 @@ export default function ScrollSequence() {
             const img = new Image();
             // Ensure specific frame ID format matches file names provided
             const frameId = START_FRAME + i;
-            img.src = `/images/sequence/ezgif-frame-${frameId}.jpg`;
+            const basePath = process.env.NODE_ENV === 'production' ? '/Clever-Cup' : '';
+            img.src = `${basePath}/images/sequence/ezgif-frame-${frameId}.jpg`;
             img.onload = () => {
                 loadedCount++;
                 if (loadedCount === FRAME_COUNT) {
